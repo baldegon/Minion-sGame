@@ -44,14 +44,16 @@ namespace Minion_sGame
             //Ejecucion de la tarea de arreglar maquinaria.
             labors.selectRole(minion.Role);
             //Verificando que el minion tenga energia para poder realizar el trabajo
-            if(worker.Stamina < 40)
+            Console.Write("Queres comer una fruta para recuperar stamina? Puede elegir entre Banana, Manzana y Uva ");
+            string opcion = Console.ReadLine();
+
+            if (opcion != (string)(opcion))
             {
-                Console.WriteLine("Minion con stamina menor a 40, recuperando energia");
-                Console.WriteLine("Que fruta quiere comer?: Banana, Manzana o Uva?");
-                var fruta = Console.ReadLine();
-                worker.RecuperarPs(fruta);
-                Console.WriteLine($"Energia recuperada: 10, Stamina total del minion {minion.Role}, {worker.Stamina}");
+                Console.WriteLine("Ingrese una fruta valida.");
             }
+            Maid.RecuperarPs(opcion);
+            Console.Write("");
+
 
             //fixMachine.AllowMinionWork(minionProfession);
             //Console.WriteLine(minionProfession);

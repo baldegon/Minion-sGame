@@ -8,7 +8,9 @@ namespace Minion_sGame.Classes
 {
     internal class Biclope : Minion
     {
-        public Biclope() { 
+        public Biclope() 
+        {
+            Stamina = 10;
         }
     }
 }

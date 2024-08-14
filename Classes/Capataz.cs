@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Minion_sGame.Classes
 {
-    internal class Capataz
+    internal class Capataz : Minion
     {
-        public string Health { get; set; }
+    
+        public Capataz() 
+        {
+            
+        }
+
 
     }
 }

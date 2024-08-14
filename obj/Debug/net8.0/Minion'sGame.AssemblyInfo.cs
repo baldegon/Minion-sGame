@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Minion\'sGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a68670aa64f7c2c5e157029e0194d521fe7a7288")]
 [assembly: System.Reflection.AssemblyProductAttribute("Minion\'sGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Minion\'sGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

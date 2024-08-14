@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Minion_sGame.Classes
 {
-    internal class Worker : Minion
+    internal class Worker : Ciclope
     {
         Fruit fruta = new Fruit();
         public int Strength { get; set; }
@@ -24,11 +24,27 @@ namespace Minion_sGame.Classes
             
         }
 
-        public void RecuperarPs(string name)
+        public void RecuperarPs(string opcion)
         {
-            if(Stamina <= 40 || Stamina == 0)
+            if (Stamina <= 40 || Stamina == 0)
             {
-                fruta.Banana();
+                switch (opcion)
+                {
+                    case "Banana":
+                        Stamina += 10;
+                        Console.WriteLine($"Se recuperaron 10P de Stamina, Total: {Stamina}");
+                        break;
+                    case "Manzana":
+                        Stamina += 5;
+                        Console.WriteLine($"Se recuperaron 5P de Stamina, Total: {Stamina}");
+                        break;
+                    case "Uva":
+                        Stamina += 1;
+                        Console.WriteLine($"Se recuperaron 1P de Stamina, Total: {Stamina}");
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

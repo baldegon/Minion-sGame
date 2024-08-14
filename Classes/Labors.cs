@@ -19,7 +19,7 @@ namespace Minion_sGame.Classes
         Minion minion = new Minion();
         Soldier soldier = new Soldier();
         Worker worker = new Worker();
-        //Maid Maid = new Maid();
+        Maid maid = new Maid();
 
         public string MinionType;
 
@@ -65,7 +65,7 @@ namespace Minion_sGame.Classes
         public void FixTheMachine(string MinionRole)
         {
 
-            Console.Write("Funciona");
+            Console.WriteLine("TESING ---- Funciona ---- TESTING");
             bool Fixed = false;
             bool StatsRequeriments = minion.Strength > 20 && minion.Expertise > 20 && minion.Stamina > 50;
             int SoldierStats = soldier.Strength;
@@ -77,25 +77,37 @@ namespace Minion_sGame.Classes
              * si puede o no realizar el trabajo.
              * 
              */
+            if (worker.Stamina < 40)
+            {
+                Console.WriteLine("Minion con stamina menor a 40, recuperando energia");
+                Console.WriteLine("Que fruta quiere comer?: Banana, Manzana o Uva?");
+                var fruta = Console.ReadLine();
+                worker.RecuperarPs(fruta);
+                Console.WriteLine($"Energia recuperada: 10, Stamina total del minion {minion.Role}, {worker.Stamina}");
+            }
             bool RoleAllowed = MinionRole == "Soldier" || MinionRole == "Worker";
             ////este codigo funciona casi al final de todo, si es !Fixed ( NEGADO ) este nunca ejecuta nada.
             if (MinionRole == "Soldier")
             {
-                
+                Console.WriteLine("\tLINEA DE PRUEBA.");
             }
             if (Fixed && !StatsRequeriments)
             {
                 Console.WriteLine("Este minion no cumple los requisitos para realizar el trabajo");
             }
-            else
+            else if (!Fixed && StatsRequeriments && MinionRole == "Soldier")
             {
                 Console.WriteLine("Minion Realizando el trabajo...");
                 Console.WriteLine("Trabajo terminado, se ha arreglado la maquina!");
-                Console.WriteLine($"La Estamina del minion {minion.Role} ha bajado a: {minion.Stamina}");
-               minion.Stamina -= 60;
+                soldier.Stamina -= 3;
+                Console.WriteLine($"La Estamina del minion {MinionRole} ha bajado a: {soldier.Stamina}");
+                Console.WriteLine("-----------");
+                Console.WriteLine($"Stats actuales del Soldier:  Stamina: {soldier.Stamina}, Strength: {soldier.Strength}, Expertise: {soldier.Expertise}");
+                Console.WriteLine($"Stats actuales del Worker: Stamina: {worker.Stamina}, Strength: {worker.Strength}, Expertise: {worker.Expertise}");
+                Console.WriteLine($"Stats actuales de la Mucama: Stamina: {maid.Stamina}, Strength: {maid.Strength}, Expertise: {maid.Expertise}");
             }
 
-            
+
 
 
             //switch (eleccion)
@@ -124,10 +136,10 @@ namespace Minion_sGame.Classes
             //    //si es el worker se repite pero con el worker.
             //    soldier.Stamina -= 60;
             //    Console.WriteLine($"La Estamina del minion {MinionRole} ha bajado a: {minion.Stamina}");
-                
+
 
             //}
-            
+
             //#region switch con enum
             //////////////////////////
             ////switch (eleccion)
@@ -151,9 +163,20 @@ namespace Minion_sGame.Classes
         {            
             Console.WriteLine("Probando funcion limpiar sector, solo la mucama puede usarlo");
 
+            if(soldier.Stamina < 4 || soldier.Stamina > 0)
+            {
+                soldier.Stamina -= 2;
+                Console.WriteLine("El Soldado esta limpiando el Sector...");
+                Console.WriteLine("Ya quedo limpio el sector!");
+                Console.WriteLine($"Stats actuales del Soldier:  Stamina: {soldier.Stamina}, Strength: {soldier.Strength}, Expertise: {soldier.Expertise}");
+                Console.WriteLine($"Stats actuales del Worker: Stamina: {worker.Stamina}, Strength: {worker.Strength}, Expertise: {worker.Expertise}");
+                Console.WriteLine($"Stats actuales de la Mucama: Stamina: {maid.Stamina}, Strength: {maid.Strength}, Expertise: {maid.Expertise}");
+            }
+
+
             if(minion.Stamina > 50)
             {
-                Console.WriteLine($"Su Rol es: {minion.Role}, A no ser que su rol sea MUCAMA o MAID. No puede Realizar este trabajo");
+                
             }
             else
             {
@@ -184,7 +207,33 @@ namespace Minion_sGame.Classes
 
         public void defendSector()
         {
-            Console.WriteLine("Probando defender el sector, El soldado puede usar esta funcion");
+            //grado de amenaza para los biclopes
+
+            const int Menace = 7;
+
+            // para los ciclopes es el doble, Menace*2
+
+            Console.WriteLine("\tProbando defender el sector, El soldado puede usar esta funcion");
+
+            if(MinionType == "Mucama" || MinionType == "Maid")
+            {
+                Console.WriteLine("No puede defender el sector ningun minion que tenga el rol de Maid");
+            }
+            if (soldier.Strength == Menace)
+            {
+
+                soldier.Strength += 2;
+                soldier.GunDamage += 1;
+                Console.WriteLine("El Soldado esta limpiando el Sector...");
+                Console.WriteLine("Ya quedo limpio el sector!");
+                Console.WriteLine($"Stats actuales del Soldier:  Stamina: {soldier.Stamina}, Strength: {soldier.Strength}, Expertise: {soldier.Expertise}");
+                Console.WriteLine($"Stats actuales del Worker: Stamina: {worker.Stamina}, Strength: {worker.Strength}, Expertise: {worker.Expertise}");
+                Console.WriteLine($"Stats actuales de la Mucama: Stamina: {maid.Stamina}, Strength: {maid.Strength}, Expertise: {maid.Expertise}");
+            }
+
+
+
+
         }
 
     }

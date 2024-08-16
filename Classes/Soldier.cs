@@ -20,7 +20,7 @@ namespace Minion_sGame.Classes
             Expertise = 50;
         }
 
-
+         
         public void RecuperarPs(string opcion)
         {
             if (Stamina <= 40 || Stamina == 0)

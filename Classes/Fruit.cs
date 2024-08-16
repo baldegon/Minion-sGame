@@ -15,7 +15,7 @@ namespace Minion_sGame.Classes
         {
             this.Name = Name;
         }
-
+ 
 
         public void Banana() 
         {

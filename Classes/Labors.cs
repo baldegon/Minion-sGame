@@ -210,7 +210,7 @@ namespace Minion_sGame.Classes
             //grado de amenaza para los biclopes
 
             const int Menace = 7;
-
+ 
             // para los ciclopes es el doble, Menace*2
 
             Console.WriteLine("\tProbando defender el sector, El soldado puede usar esta funcion");

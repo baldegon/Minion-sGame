@@ -23,7 +23,7 @@ namespace Minion_sGame.Classes
             Tools.Add("Soldadora");
             
         }
-
+         
         public void RecuperarPs(string opcion)
         {
             if (Stamina <= 40 || Stamina == 0)

@@ -10,7 +10,7 @@ namespace Minion_sGame.Classes
     {
         
         public Ciclope() {
-            Stamina = 9999;
+            Stamina = 9999; 
         }
     }
 }

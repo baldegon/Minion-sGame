@@ -11,7 +11,7 @@ namespace Minion_sGame.Classes
     
         public Capataz() 
         {
-            
+             
         }
 
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Minion_sGame.Classes
-{
+{ 
     internal class Minion
     {
         public int Strength { get; set; }

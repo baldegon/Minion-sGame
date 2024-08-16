@@ -10,7 +10,7 @@ namespace Minion_sGame.Classes
     {
         public Biclope() 
         {
-            Stamina = 10;
+            Stamina = 10; 
         }
     }
 }
